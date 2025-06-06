@@ -1,0 +1,37 @@
+# 忽略数据目录
+data/
+exps/
+
+# 忽略Python缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# 忽略日志文件
+logs/
+*.log
+
+# 忽略IDE配置文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 忽略临时文件
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# 忽略虚拟环境
+venv/
+env/
+.env
+
+# 忽略模型检查点文件
+*.pth
+*.ckpt
+*.h5 

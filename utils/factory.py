@@ -3,6 +3,9 @@ def get_model(model_name, args):
     if name=="proof":
         from models.proof import Learner
         return Learner(args)
+    elif name == "proof_morphology":
+        from models.proof_morphology import Learner
+        return Learner(args)
     elif name == "simplecil":
         from models.simplecil import Learner
         return Learner(args)

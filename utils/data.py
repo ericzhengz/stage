@@ -50,7 +50,7 @@ class IIMinsects202(iData):
     def __init__(self):
         super().__init__()
         # IMPORTANT: User must ensure this path is correct
-        self.dataset_base_path = "C:/Users/ASUS/Desktop/test_0/data/IIMinsects202"
+        self.dataset_base_path = "./data/IIMinsects202"
         # self.dataset_base_path = "./data/IIMinsects202" # Alternative relative path
         logging.info(f"IIMinsects202 dataset path set to: {self.dataset_base_path}")
         if not os.path.isdir(self.dataset_base_path):\

@@ -2,7 +2,6 @@ import json
 import argparse
 import os
 import torch
-from trainer import train
 
 # 在导入其他库之前设置 OpenMP 环境变量，抑制多重初始化警告
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
@@ -25,8 +24,14 @@ def main():
     else:
         print("警告: 未检测到GPU，将使用CPU进行训练（速度会很慢）")
     
-    # 启动训练
-    train(args)
+    # 启动训练 - 根据模型选择训练器
+    model_name = args.get("model_name", "proof")
+    if model_name == "proof_morphology":
+        from trainer_morphology import train
+        train(args)
+    else:
+        from trainer import train
+        train(args)
 
 def load_json(settings_path):
     print(f"加载配置文件: {settings_path}")
@@ -41,7 +46,7 @@ def setup_parser():
                         help='配置文件路径')
     parser.add_argument('--name', type=str, default='',
                         help='实验名称')
-    parser.add_argument('--model_name', type=str, default='proof',
+    parser.add_argument('--model_name', type=str, default='proof_morphology',
                         help='模型名称')
     parser.add_argument('--dataset', type=str, default='insect',
                         help='数据集名称')
